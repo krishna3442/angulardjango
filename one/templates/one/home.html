@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+
+  </head>
+  <body ng-app="one.demo">
+    {% verbatim %}
+    <div ng-controller="Onecontroller">
+
+      <div ng-repeat="list in data">
+        <h3>{{list.name}}</h3> 
+        <ul>
+
+          <li ng-repeat="card in list.cards"> {{card.title}}</li>
+          <li ng-repeat="card in list.cards"> {{card.description}}</li>
+            <li ng-repeat="card in list.cards"> {{card.story_points}}</li>
+              <li ng-repeat="card in list.cards"> {{card.bussiness_values}}</li>
+
+        </ul>
+        <input type="text"ng-model="new_title">
+        <button  ng-click="add(list,new_title)">+</button>
+
+      </div>
+
+    </div>
+    {% endverbatim %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+     <script src="{% static "one/one.js" %}">
+
+
+     </script>
+  </body>
+</html>
